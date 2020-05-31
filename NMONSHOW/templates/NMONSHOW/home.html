@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+  <script src="{% static jquery.min.js %}"></script>
+  <script src="{% static bootstrap.min.js %}"></script>
+</head>
+<title>NMON DASHBOARD</title>
+<body>
+	<div class="container">
+<h2 class="alert alert-success">Processing Nmon Files At Location: {{ config }}</h2>
+<br>
+<form action="processnmon/" method="POST">
+	{% csrf_token %} 
+	<div class="form-group row">
+		 <div class="col-xs-6">
+   <label for="example-datetime-local-input" class="col-2 col-form-label">Choose date show: </label>
+  
+    <input class="form-control" type="date" id="example-datetime-local-input" name="date"><br>
+       <button type="submit"  class="btn btn-success">Show</button>
+  </div>
+</div>
+</form>
+</div>
+</body>
+</html>

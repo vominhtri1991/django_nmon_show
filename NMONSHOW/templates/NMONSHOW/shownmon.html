@@ -1,0 +1,43 @@
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+  <script src="{% static jquery.min.js %}"></script>
+  <script src="{% static bootstrap.min.js %}"></script>
+</head>
+<title>NMON DASHBOARD</title>
+<body>
+	<div class="container">
+<h2 class="alert alert-info">Processing Nmon Date: {{ date }}</h2>
+<br>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Hostname</th>
+        <th>Model</th>
+        <th>IP Address</th>
+        <th>Average CPU</th>
+        <th>Average Memory</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for server in servers %}
+      <tr>
+        <td>{{ server.hostname}}</td>
+        <td>{{ server.model }}</td>
+        <td>{{ server.ip }}</td>
+        <td>{{ server.avg_cpu }}%</td>
+        <td>{{ server.avg_memory }}%</td>
+      </tr>
+     
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+
+</div>
+</body>
+</html>
